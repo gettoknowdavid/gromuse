@@ -22,5 +22,19 @@ dev_dependencies:
   injectable_generator: ^2.4.2
   go_router_builder: ^2.4.1
 
+flutter_gen:
+  output: lib/common/assets/
+
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/images/
+
+  fonts:
+    - family: HelveticaNeue
+      fonts:
+        - asset: assets/fonts/HelveticaNeueBold.ttf
+        - asset: assets/fonts/HelveticaNeueLight.ttf
+        - asset: assets/fonts/HelveticaNeueMedium.ttf
+ 
