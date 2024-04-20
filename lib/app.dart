@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'config/route/router.dart';
+import 'config/config.dart';
 
 class GromuseApp extends StatelessWidget {
   const GromuseApp({super.key});
@@ -10,12 +10,8 @@ class GromuseApp extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: GromuseRouter.router,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.from(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.purple,
-          brightness: Brightness.light,
-        ),
-      ),
+      theme: GTheme.light,
+      darkTheme: GTheme.dark,
     );
   }
 }

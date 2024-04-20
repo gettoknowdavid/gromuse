@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gromuse/config/route/router.dart';
+import 'package:gromuse/config/router/router.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
