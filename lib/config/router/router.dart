@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../features/delivery/presentation/delivery/delivery.dart';
 import '../../features/favorite/presentation/favorite/favorite.dart';
-import '../../features/layout/presentation/pages/layout_page.dart';
+import '../../layout/pages/layout_page.dart';
 import '../../features/onboarding/presentation/pages/onboarding_page.dart';
 import '../../features/product/presentation/category/category.dart';
 import '../../features/product/presentation/home/home.dart';
