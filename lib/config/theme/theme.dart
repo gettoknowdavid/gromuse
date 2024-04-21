@@ -27,10 +27,15 @@ class GTheme {
         onSecondary: Internal.r(isLight, GColors.text, GColors.white),
         error: Internal.r(isLight, GColors.error, GColors.onError),
         onError: Internal.r(isLight, GColors.onError, GColors.error),
-        background: Internal.r(isLight, GColors.white, GColors.dark),
+        background: Internal.r(isLight, GColors.background, GColors.dark),
         onBackground: Internal.r(isLight, GColors.text, GColors.white),
         surface: Internal.r(isLight, GColors.white, GColors.dark),
         onSurface: Internal.r(isLight, GColors.text, GColors.white),
+      ),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        unselectedItemColor: GColors.text,
+        selectedItemColor: GColors.text,
+        backgroundColor: GColors.white,
       ),
     );
   }
