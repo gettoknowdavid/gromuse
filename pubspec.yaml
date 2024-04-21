@@ -1,15 +1,16 @@
 name: gromuse
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.2.6 <4.0.0'
+  sdk: ">=3.2.6 <4.0.0"
 
 dependencies:
   collection: ^1.18.0
   flutter:
     sdk: flutter
+  flutter_native_splash: ^2.4.0
   get_it: ^7.6.7
   go_router: ^13.2.2
   injectable: ^2.3.5
@@ -24,6 +25,16 @@ dev_dependencies:
 
 flutter_gen:
   output: lib/common/assets/
+
+flutter_native_splash:
+  color: "#FCE0A1"
+  color_dark: "#064C4F"
+
+  android_12:
+    color: "#FCE0A1"
+    color_dark: "#064C4F"
+    image: assets/images/splash_logo_light.png
+    image_dark: assets/images/splash_logo_dark.png
 
 flutter:
   uses-material-design: true
