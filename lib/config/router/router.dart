@@ -1,13 +1,14 @@
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+import 'package:gromuse/features/auth/auth.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../features/delivery/presentation/delivery/delivery.dart';
 import '../../features/favorite/presentation/favorite/favorite.dart';
-import '../../layout/pages/layout_page.dart';
 import '../../features/onboarding/presentation/pages/onboarding_page.dart';
 import '../../features/product/presentation/category/category.dart';
 import '../../features/product/presentation/home/home.dart';
+import '../../layout/pages/layout_page.dart';
 
 part 'router.g.dart';
 
@@ -22,7 +23,13 @@ class GromuseRouter {
   );
 }
 
-@TypedGoRoute<OnboardingRoute>(path: '/', name: 'Onboarding')
+// extension GromuseRouterX on BuildContext {
+//   Future<T?> push<T extends Object?>(String location, {Object? extra}) async {
+//     return GoRouter.of(this).push<T>(location, extra: extra);
+//   }
+// }
+
+@TypedGoRoute<OnboardingRoute>(path: '/', name: 'OnboardingPage')
 class OnboardingRoute extends GoRouteData {
   const OnboardingRoute();
 
@@ -60,7 +67,7 @@ class LayoutRoute extends StatefulShellRouteData {
   @override
   Widget builder(context, state, navigationShell) => navigationShell;
 
-  static const String $restorationScopeId = 'restorationScopeId';
+  static const String $restorationScopeId = '_gromuse_restorationScopeId';
 
   static Widget $navigatorContainerBuilder(context, navigationShell, children) {
     return LayoutPage(
@@ -112,4 +119,26 @@ class DeliveryRoute extends GoRouteData {
 
   @override
   Widget build(context, state) => const DeliveryPage();
+}
+
+/// Registration Page
+@TypedGoRoute<RegisterRoute>(path: '/register', name: 'RegisterPage')
+class RegisterRoute extends GoRouteData {
+  const RegisterRoute();
+
+  static const String path = '/register';
+
+  @override
+  Widget build(context, state) => const RegisterPage();
+}
+
+/// Login Page
+@TypedGoRoute<LoginRoute>(path: '/login', name: 'LoginPage')
+class LoginRoute extends GoRouteData {
+  const LoginRoute();
+
+  static const String path = '/login';
+
+  @override
+  Widget build(context, state) => const LoginPage();
 }

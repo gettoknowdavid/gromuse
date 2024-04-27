@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gromuse/common/common.dart';
+import 'package:gromuse/config/config.dart';
 
 import '../widgets/widgets.dart';
 
@@ -35,9 +36,14 @@ class OnboardingPage extends StatelessWidget with SU {
                       10.verticalSpace,
                       const SubHeaderText(),
                       30.verticalSpace,
-                      PrimaryButton(label: 'Get Started', onPressed: () {}),
+                      PrimaryButton(
+                        label: 'Get Started',
+                        onPressed: () => const RegisterRoute().push(context),
+                      ),
                       20.verticalSpace,
-                      const RedirectionTextButton(),
+                      RedirectionTextButton(
+                        onTap: () => const LoginRoute().push(context),
+                      ),
                       20.verticalSpace,
                       const Spacer(),
                     ],
