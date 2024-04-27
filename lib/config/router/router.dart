@@ -1,14 +1,13 @@
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:gromuse/features/auth/auth.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../features/delivery/presentation/delivery/delivery.dart';
-import '../../features/favorite/presentation/favorite/favorite.dart';
-import '../../features/onboarding/presentation/pages/onboarding_page.dart';
-import '../../features/product/presentation/category/category.dart';
-import '../../features/product/presentation/home/home.dart';
-import '../../layout/pages/layout_page.dart';
+import '../../features/auth/auth.dart';
+import '../../features/delivery/delivery.dart';
+import '../../features/favorite/favorite.dart';
+import '../../features/onboarding/onboarding.dart';
+import '../../features/product/product.dart';
+import '../../layout/layout.dart';
 
 part 'router.g.dart';
 
@@ -22,12 +21,6 @@ class GromuseRouter {
     routes: $appRoutes,
   );
 }
-
-// extension GromuseRouterX on BuildContext {
-//   Future<T?> push<T extends Object?>(String location, {Object? extra}) async {
-//     return GoRouter.of(this).push<T>(location, extra: extra);
-//   }
-// }
 
 @TypedGoRoute<OnboardingRoute>(path: '/', name: 'OnboardingPage')
 class OnboardingRoute extends GoRouteData {
