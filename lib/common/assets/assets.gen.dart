@@ -12,20 +12,21 @@ import 'package:flutter/widgets.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/onboarding-1.png
-  AssetGenImage get onboarding1 =>
-      const AssetGenImage('assets/images/onboarding-1.png');
+  /// File path: assets/images/onboarding.png
+  AssetGenImage get onboarding =>
+      const AssetGenImage('assets/images/onboarding.png');
 
-  /// File path: assets/images/onboarding-2.png
-  AssetGenImage get onboarding2 =>
-      const AssetGenImage('assets/images/onboarding-2.png');
+  /// File path: assets/images/splash_logo_dark.png
+  AssetGenImage get splashLogoDark =>
+      const AssetGenImage('assets/images/splash_logo_dark.png');
 
-  /// File path: assets/images/onboarding-3.png
-  AssetGenImage get onboarding3 =>
-      const AssetGenImage('assets/images/onboarding-3.png');
+  /// File path: assets/images/splash_logo_light.png
+  AssetGenImage get splashLogoLight =>
+      const AssetGenImage('assets/images/splash_logo_light.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [onboarding1, onboarding2, onboarding3];
+  List<AssetGenImage> get values =>
+      [onboarding, splashLogoDark, splashLogoLight];
 }
 
 class Assets {

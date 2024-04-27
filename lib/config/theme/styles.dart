@@ -8,18 +8,21 @@ class GTextStyle extends TextStyle {
     super.fontFamily,
     super.textBaseline,
     super.letterSpacing,
+    super.height,
   });
 
   static const String _fontFamily = FontFamily.helveticaNeue;
 
   static const display = GTextStyle._(
-    fontSize: 32.0,
-    fontWeight: FontWeight.w400,
+    fontSize: 26.0,
+    fontWeight: FontWeight.w600,
     fontFamily: _fontFamily,
     textBaseline: TextBaseline.alphabetic,
-    letterSpacing: 0,
+    letterSpacing: -1,
+    height: 1.2,
   );
 
+ 
   static const heading1Light = GTextStyle._(
     fontSize: 24.0,
     fontWeight: FontWeight.w200,
@@ -69,7 +72,7 @@ class GTextStyle extends TextStyle {
   );
 
   static const bodyLight = GTextStyle._(
-    fontSize: 14.0,
+    fontSize: 16.0,
     fontWeight: FontWeight.w200,
     fontFamily: _fontFamily,
     textBaseline: TextBaseline.alphabetic,
@@ -77,7 +80,7 @@ class GTextStyle extends TextStyle {
   );
 
   static const bodyMedium = GTextStyle._(
-    fontSize: 14.0,
+    fontSize: 16.0,
     fontWeight: FontWeight.w400,
     fontFamily: _fontFamily,
     textBaseline: TextBaseline.alphabetic,
@@ -85,23 +88,39 @@ class GTextStyle extends TextStyle {
   );
 
   static const bodyBold = GTextStyle._(
-    fontSize: 14.0,
+    fontSize: 16.0,
     fontWeight: FontWeight.w600,
     fontFamily: _fontFamily,
     textBaseline: TextBaseline.alphabetic,
     letterSpacing: 0,
   );
 
-  static const caption = GTextStyle._(
-    fontSize: 9.0,
+  static const bodySmall = GTextStyle._(
+    fontSize: 14.0,
     fontWeight: FontWeight.w400,
     fontFamily: _fontFamily,
     textBaseline: TextBaseline.alphabetic,
     letterSpacing: 0,
   );
 
+  static const caption = GTextStyle._(
+    fontSize: 13.0,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily,
+    textBaseline: TextBaseline.alphabetic,
+    letterSpacing: 0,
+  );
+
+  static const captionBold = GTextStyle._(
+    fontSize: 13.0,
+    fontWeight: FontWeight.w600,
+    fontFamily: _fontFamily,
+    textBaseline: TextBaseline.alphabetic,
+    letterSpacing: 0,
+  );
+
   static const label = GTextStyle._(
-    fontSize: 16.0,
+    fontSize: 14.0,
     fontWeight: FontWeight.w400,
     fontFamily: _fontFamily,
     textBaseline: TextBaseline.alphabetic,
