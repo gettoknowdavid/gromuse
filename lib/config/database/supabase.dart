@@ -1,4 +1,4 @@
-import 'package:gromuse/core/env.dart';
+import 'package:gromuse/config/env.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> configureSupabase() async {
