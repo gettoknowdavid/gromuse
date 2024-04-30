@@ -18,10 +18,8 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isEnabled = !disabled || !loading;
-
     return FilledButton(
-      onPressed: isEnabled ? onPressed : null,
+      onPressed: disabled || loading ? null : onPressed,
       child: loading ? const _LoadingIndicator() : Text(label),
     );
   }
