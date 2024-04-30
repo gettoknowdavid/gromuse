@@ -8,8 +8,8 @@ Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  await configureSupabase();
   await configureDependencies();
+
 
   runApp(const GromuseApp());
 }
