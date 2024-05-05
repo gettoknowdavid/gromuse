@@ -30,7 +30,7 @@ class _LoadingIndicator extends StatelessWidget with SU {
 
   @override
   Widget build(BuildContext context) {
-    final buttonSize = GTheme.filledButtonSize;
+    final buttonSize = GTheme.buttonSize;
     final containerHeight = buttonSize.height * 0.8;
 
     return SizedBox(
