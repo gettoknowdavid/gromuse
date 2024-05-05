@@ -15,4 +15,6 @@ abstract class IAuthFacade {
     required IEmail email,
     required IPassword password,
   });
+
+  Future<void> signOut();
 }

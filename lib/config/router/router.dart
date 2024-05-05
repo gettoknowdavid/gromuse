@@ -1,7 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:injectable/injectable.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../common/widgets/loading_indicator.dart';
 import '../../features/auth/auth.dart';
 import '../../features/delivery/delivery.dart';
 import '../../features/favorite/favorite.dart';
@@ -13,18 +14,37 @@ part 'router.g.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
-@Injectable()
-class GromuseRouter {
-  static final GoRouter router = GoRouter(
-    initialLocation: '/',
+@Riverpod(dependencies: [AuthNotifier])
+GoRouter router(RouterRef ref) {
+  final status = ref.watch(authNotifierProvider);
+  final isOnboarded = ref.read(isOnboardedProvider);
+
+  final GoRouter router = GoRouter(
+    initialLocation: OnboardingRoute.path,
     navigatorKey: _rootNavigatorKey,
     routes: $appRoutes,
+    refreshListenable: status,
+    redirect: (context, state) {
+      final isAllowedPath = status.value.allowedPaths.contains(state.fullPath);
+
+      if (!isOnboarded && !isAllowedPath) return OnboardingRoute.path;
+
+      if (!isAllowedPath) return status.value.redirectPath;
+
+      return null;
+    },
   );
+
+  ref.onDispose(router.dispose);
+
+  return router;
 }
 
 @TypedGoRoute<OnboardingRoute>(path: '/', name: 'OnboardingPage')
 class OnboardingRoute extends GoRouteData {
   const OnboardingRoute();
+
+  static const String path = '/';
 
   @override
   Widget build(context, state) => const OnboardingPage();
@@ -77,6 +97,8 @@ class HomeStatefulRoute extends StatefulShellBranchData {
 class HomeRoute extends GoRouteData {
   const HomeRoute();
 
+  static const String path = '/home';
+
   @override
   Widget build(context, state) => const HomePage();
 }
@@ -87,6 +109,8 @@ class CategoryStatefulRoute extends StatefulShellBranchData {
 
 class CategoryRoute extends GoRouteData {
   const CategoryRoute();
+
+  static const String path = '/category';
 
   @override
   Widget build(context, state) => const CategoryPage();
@@ -99,6 +123,8 @@ class FavoriteStatefulRoute extends StatefulShellBranchData {
 class FavoriteRoute extends GoRouteData {
   const FavoriteRoute();
 
+  static const String path = '/favorite';
+
   @override
   Widget build(context, state) => const FavoritePage();
 }
@@ -109,6 +135,8 @@ class DeliveryStatefulRoute extends StatefulShellBranchData {
 
 class DeliveryRoute extends GoRouteData {
   const DeliveryRoute();
+
+  static const String path = '/delivery';
 
   @override
   Widget build(context, state) => const DeliveryPage();
@@ -134,4 +162,15 @@ class LoginRoute extends GoRouteData {
 
   @override
   Widget build(context, state) => const LoginPage();
+}
+
+/// Loading Page
+@TypedGoRoute<LoadingRoute>(path: '/loading', name: 'LoadingPage')
+class LoadingRoute extends GoRouteData {
+  const LoadingRoute();
+
+  static const String path = '/loading';
+
+  @override
+  Widget build(context, state) => const LoadingPage();
 }

@@ -12,6 +12,6 @@ final di = GetIt.instance;
   asExtension: true,
 )
 Future<void> configureDependencies() async {
-  await Future.delayed(const Duration(seconds: 2), di.init);
+  await Future.delayed(Duration.zero, di.init);
   FlutterNativeSplash.remove();
 }

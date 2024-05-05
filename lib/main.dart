@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'app.dart';
 import 'config/config.dart';
@@ -10,6 +11,5 @@ Future<void> main() async {
 
   await configureDependencies();
 
-
-  runApp(const GromuseApp());
+  runApp(const ProviderScope(child: GromuseApp()));
 }

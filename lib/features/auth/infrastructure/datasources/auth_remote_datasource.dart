@@ -39,15 +39,13 @@ class AuthRemoteDatasource {
     required String name,
     required String email,
     required String password,
+    String? photoUrl,
   }) async {
     final response = await _supabase.client.auth.signUp(
       email: email,
       password: password,
-    );
-
-    if (response.session != null) {
-      await updateDisplayName(name);
-    }
+      data: {'display_name': name, 'photo_url': photoUrl},
+    ).whenComplete(() async => await login(email: email, password: password));
 
     return response;
   }
@@ -56,4 +54,13 @@ class AuthRemoteDatasource {
     final attributes = UserAttributes(data: {'display_name': name});
     await _supabase.client.auth.updateUser(attributes);
   }
+
+  Future<void> updatePhotoUrl(String? url) async {
+    if (url != null) {
+      final attributes = UserAttributes(data: {'photo_url': url});
+      await _supabase.client.auth.updateUser(attributes);
+    }
+  }
+
+  Future<void> signOut() => _supabase.client.auth.signOut();
 }

@@ -16,7 +16,7 @@ class GTheme {
 
   static ThemeData _createTheme(Brightness brightness) => _raw(brightness);
 
-  static Size filledButtonSize = Size.fromHeight(40.h);
+  static Size buttonSize = Size.fromHeight(40.h);
 
   static ThemeData _raw(Brightness brightness) {
     final isLight = brightness == Brightness.light;
@@ -34,8 +34,11 @@ class GTheme {
         style: FilledButton.styleFrom(
           backgroundColor: colorScheme.secondary,
           foregroundColor: colorScheme.onSecondary,
-          minimumSize: filledButtonSize,
+          minimumSize: buttonSize,
         ),
+      ),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(minimumSize: buttonSize),
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(

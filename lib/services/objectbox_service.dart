@@ -13,7 +13,7 @@ class ObjectBoxService {
   /// Create an instance of ObjectBox to use throughout the app.
   static Future<ObjectBoxService> create() async {
     final docsDir = await getApplicationDocumentsDirectory();
-    final store = openStore(directory: p.join(docsDir.path, 'gromuse'));
+    final store = await openStore(directory: p.join(docsDir.path, 'gromuse'));
     return ObjectBoxService._create(store);
   }
 }

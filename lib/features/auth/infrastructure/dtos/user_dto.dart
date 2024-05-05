@@ -1,21 +1,20 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:objectbox/objectbox.dart';
 
 import '../../domain/domain.dart';
 
 part 'user_dto.freezed.dart';
 part 'user_dto.g.dart';
 
-@Freezed(addImplicitFinal: false)
+@freezed
 @JsonSerializable(createFactory: false)
 class UserDto with _$UserDto {
-  @Entity(realClass: UserDto)
   factory UserDto({
-    int? id,
-    required String uid,
+    required String id,
     required String name,
     required String email,
     String? photoUrl,
+    String? phone,
+    @Default(false) bool isVerified,
   }) = _UserDto;
 
   factory UserDto.fromJson(Map<String, dynamic> json) =>
@@ -29,10 +28,11 @@ extension UserDtoToDomain on UserDto {
   User get toDomain {
     return User(
       id: id,
-      uid: uid,
       email: IEmail(email),
       name: IName(name),
       photoUrl: photoUrl,
+      phone: phone,
+      isVerified: isVerified,
     );
   }
 }
