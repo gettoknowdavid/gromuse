@@ -16,6 +16,18 @@ class $AssetsImagesGen {
   AssetGenImage get background =>
       const AssetGenImage('assets/images/background.png');
 
+  /// File path: assets/images/facebook_logo.png
+  AssetGenImage get facebookLogo =>
+      const AssetGenImage('assets/images/facebook_logo.png');
+
+  /// File path: assets/images/fruits-background.jpg
+  AssetGenImage get fruitsBackground =>
+      const AssetGenImage('assets/images/fruits-background.jpg');
+
+  /// File path: assets/images/google_logo.png
+  AssetGenImage get googleLogo =>
+      const AssetGenImage('assets/images/google_logo.png');
+
   /// File path: assets/images/onboarding.png
   AssetGenImage get onboarding =>
       const AssetGenImage('assets/images/onboarding.png');
@@ -29,8 +41,15 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/splash_logo_light.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [background, onboarding, splashLogoDark, splashLogoLight];
+  List<AssetGenImage> get values => [
+        background,
+        facebookLogo,
+        fruitsBackground,
+        googleLogo,
+        onboarding,
+        splashLogoDark,
+        splashLogoLight
+      ];
 }
 
 class Assets {
