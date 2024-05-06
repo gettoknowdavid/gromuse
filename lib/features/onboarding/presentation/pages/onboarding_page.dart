@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gromuse/common/common.dart';
+import 'package:gromuse/common/widgets/secondary_button.dart';
 import 'package:gromuse/config/config.dart';
 
 import '../widgets/widgets.dart';
@@ -41,15 +42,15 @@ class OnboardingPage extends StatelessWidget with SU {
                         onPressed: () => const RegisterRoute().push(context),
                       ),
                       8.verticalSpace,
-                      OutlinedButton(
+                      SecondaryButton(
                         onPressed: () => const LoginRoute().push(context),
-                        child: const Text('Login'),
+                        label: 'Login',
                       ),
                       30.verticalSpace,
                       const Spacer(),
                     ],
                   ),
-                ),  
+                ),            
               ),
             ),
           ),
