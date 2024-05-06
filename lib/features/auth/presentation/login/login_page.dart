@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gromuse/common/common.dart';
+import 'package:gromuse/common/widgets/widgets.dart';
 import 'package:gromuse/config/config.dart';
-import 'package:gromuse/features/auth/application/application.dart';
+import 'package:gromuse/features/auth/auth.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../widgets/widgets.dart';
 import 'login_form.dart';
 
 class LoginPage extends ConsumerWidget {
@@ -28,10 +31,37 @@ class LoginPage extends ConsumerWidget {
     });
 
     return Scaffold(
-      appBar: AppBar(),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16).r,
-        child: const LoginForm(),
+        child: Column(
+          children: [
+            const AuthTitleContainer(
+              title: 'Welcome back!',
+              subtitle:
+                  'We have missed you. You can login with your credentials.',
+            ),
+            CurvedContainer(
+              contentPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16).r,
+              child: Column(
+                children: [
+                  const DragHandle(),
+                  30.verticalSpace,
+                  const LoginForm(),
+                  16.verticalSpace,
+                  const OrDivider(),
+                  20.verticalSpace,
+                  const GoogleButton(),
+                  10.verticalSpace,
+                  RedirectionTextButton(
+                    title: 'Don\'t have an account yet?',
+                    buttonLabel: 'Register now',
+                    onTap: () => const RegisterRoute().push(context),
+                  ),
+                  30.verticalSpace,
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

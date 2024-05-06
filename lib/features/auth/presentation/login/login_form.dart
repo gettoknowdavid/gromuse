@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gromuse/common/common.dart';
-import 'package:gromuse/config/config.dart';
 import 'package:gromuse/features/auth/application/application.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
@@ -12,12 +12,17 @@ class LoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Text('Login', style: GTextStyle.display),
-        10.verticalSpace,
         const _Email(),
-        10.verticalSpace,
-        const _Password(),
         20.verticalSpace,
+        const _Password(),
+        Align(
+          alignment: Alignment.centerRight,
+          child: TextButton(
+            onPressed: () {},
+            child: const Text('Forgot Password?'),
+          ),
+        ),
+        30.verticalSpace,
         const _LoginButton(),
       ],
     );
@@ -32,11 +37,13 @@ class _Email extends ConsumerWidget {
     final state = ref.watch(loginNotifierProvider);
     final isLoading = state.result?.isLoading == true;
 
-    return TextFormField(
+    return GTextFormField(
       enabled: !isLoading,
       keyboardType: TextInputType.emailAddress,
       onChanged: ref.read(loginNotifierProvider.notifier).onEmailChanged,
-      decoration: const InputDecoration(hintText: 'Email'),
+      label: 'Email',
+      hint: 'Email',
+      prefixIcon: PhosphorIconsBold.user,
     );
   }
 }
@@ -66,11 +73,13 @@ class _Password extends ConsumerWidget {
     final state = ref.watch(loginNotifierProvider);
     final isLoading = state.result?.isLoading == true;
 
-    return TextFormField(
-      obscureText: true,
+    return GTextFormField(
+      isPassword: true,
       enabled: !isLoading,
       onChanged: ref.read(loginNotifierProvider.notifier).onPasswordChanged,
-      decoration: const InputDecoration(hintText: 'Password'),
+      label: 'Password',
+      hint: 'Password',
+      prefixIcon: PhosphorIconsBold.lock,
     );
   }
 }

@@ -10,7 +10,7 @@ class GColors {
   static const Color tertiary = Color(0xFF6C1144);
   static const Color accent = Color(0xFFFF7006);
   static const Color text = Color(0xFF003032);
-  static const Color background = Color(0xFFF5F6F7);
+  static const Color background = Color(0xFFEBEBEB);
   static const Color onboarding = Color(0xFFE1F0ED);
   static const Color white = Color(0xFFFFFFFF);
   static const Color error = Color(0xFFFFB4AB);

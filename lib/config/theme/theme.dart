@@ -22,9 +22,23 @@ class GTheme {
     final isLight = brightness == Brightness.light;
     final colorScheme = _colorScheme(brightness, isLight);
 
+    final inputBorder = OutlineInputBorder(
+      borderRadius: BorderRadius.circular(50).r,
+      borderSide: BorderSide(color: colorScheme.background.withOpacity(0.6)),
+    );
+
     return ThemeData(
       colorScheme: colorScheme,
       fontFamily: FontFamily.helveticaNeue,
+      appBarTheme: const AppBarTheme(elevation: 0, scrolledUnderElevation: 0),
+      dividerColor: colorScheme.onBackground.withOpacity(0.2),
+      dividerTheme: DividerThemeData(
+        color: colorScheme.onBackground.withOpacity(0.2),
+        indent: 16.r,
+        endIndent: 16.r,
+        space: 0,
+        thickness: 1.5.r,
+      ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         unselectedItemColor: GColors.text,
         selectedItemColor: GColors.text,
@@ -37,6 +51,12 @@ class GTheme {
           minimumSize: buttonSize,
         ),
       ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: colorScheme.surface,
+          minimumSize: buttonSize,
+        ),
+      ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(minimumSize: buttonSize),
       ),
@@ -45,6 +65,19 @@ class GTheme {
           textStyle: GTextStyle.caption,
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2).r,
         ),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        fillColor: colorScheme.surface,
+        filled: true,
+        border: inputBorder,
+        focusedBorder: inputBorder,
+        errorBorder: inputBorder,
+        enabledBorder: inputBorder,
+        prefixIconColor: colorScheme.onBackground.withOpacity(0.6),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 12,
+        ).r,
       ),
     );
   }
