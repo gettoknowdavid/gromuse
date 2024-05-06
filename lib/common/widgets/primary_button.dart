@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gromuse/config/config.dart';
+
+import 'loading_indicator.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
@@ -20,23 +20,8 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FilledButton(
       onPressed: disabled || loading ? null : onPressed,
-      child: loading ? const _LoadingIndicator() : Text(label),
+      child: loading ? const LoadingIndicator() : Text(label),
     );
   }
 }
 
-class _LoadingIndicator extends StatelessWidget with SU {
-  const _LoadingIndicator();
-
-  @override
-  Widget build(BuildContext context) {
-    final buttonSize = GTheme.buttonSize;
-    final containerHeight = buttonSize.height * 0.8;
-
-    return SizedBox(
-      height: containerHeight.r,
-      width: containerHeight.r,
-      child: const CircularProgressIndicator(),
-    );
-  }
-}
