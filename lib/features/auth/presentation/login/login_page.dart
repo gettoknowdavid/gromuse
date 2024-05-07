@@ -37,7 +37,7 @@ class LoginPage extends ConsumerWidget {
             const AuthTitleContainer(
               title: 'Welcome back!',
               subtitle:
-                  'We have missed you. You can login with your credentials.',
+                  'We\'ve missed you. You can login with your credentials.',
             ),
             CurvedContainer(
               contentPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16).r,
@@ -50,7 +50,7 @@ class LoginPage extends ConsumerWidget {
                   const OrDivider(),
                   20.verticalSpace,
                   const GoogleButton(),
-                  10.verticalSpace,
+                  20.verticalSpace,
                   RedirectionTextButton(
                     title: 'Don\'t have an account yet?',
                     buttonLabel: 'Register now',

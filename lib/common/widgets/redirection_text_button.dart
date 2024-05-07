@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gromuse/config/config.dart';
 
@@ -19,13 +20,11 @@ class RedirectionTextButton extends StatelessWidget {
       TextSpan(
         style: GTextStyle.caption,
         children: [
-          TextSpan(text: title),
-          WidgetSpan(
-            alignment: PlaceholderAlignment.middle,
-            child: InkWell(
-              onTap: onTap,
-              child: Text(buttonLabel, style: GTextStyle.captionBold),
-            ),
+          TextSpan(text: '$title '),
+          TextSpan(
+            text: buttonLabel,
+            style: GTextStyle.captionBold,
+            recognizer: TapGestureRecognizer()..onTap = onTap,
           ),
         ],
       ),
