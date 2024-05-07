@@ -3,7 +3,6 @@ import 'package:gromuse/features/auth/auth.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../onboarding/onboarding.dart';
-import '../auth_providers.dart';
 
 part 'register_notifier.freezed.dart';
 part 'register_notifier.g.dart';

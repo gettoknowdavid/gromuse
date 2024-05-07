@@ -15,7 +15,7 @@ class IName extends ValueObject<String> {
 
   /// Creates a new `IName` object.
   factory IName(String input) {
-    final finalInput = toBeginningOfSentenceCase(input);
+    final finalInput = toBeginningOfSentenceCase(input).trim();
     return IName._(validateNotEmpty(finalInput));
   }
 

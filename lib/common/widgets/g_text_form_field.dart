@@ -33,6 +33,12 @@ class _GTextFormFieldState extends State<GTextFormField> {
   Widget? suffixWidget, prefixWidget;
 
   @override
+  void initState() {
+    obscureText = widget.isPassword == true;
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     if (widget.prefixIcon != null) {
       prefixWidget = _PrefixIcon(icon: widget.prefixIcon!);

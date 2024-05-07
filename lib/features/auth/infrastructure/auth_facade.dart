@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:logger/logger.dart';
 import 'package:supabase_flutter/supabase_flutter.dart' as supabase;
 
 import '../domain/domain.dart';
@@ -20,8 +19,6 @@ class AuthFacade implements IAuthFacade {
   })  : _local = local,
         _remote = remote;
 
-  final _log = Logger();
-
   @override
   Stream<AuthStatus> get authStatusChanges => _remote.authStatusChanges;
 
@@ -31,8 +28,20 @@ class AuthFacade implements IAuthFacade {
     required IPassword password,
   }) async {
     try {
-      await _remote.login(email: email.get()!, password: password.get()!);
-      // await _local.saveUser(user)
+      final response = await _remote.login(
+        email: email.get()!,
+        password: password.get()!,
+      );
+
+      final user = response.user!;
+
+      await _local.saveUser(UserDto(
+        id: user.id,
+        email: user.email!,
+        name: user.userMetadata!['display_name'],
+        isVerified: user.userMetadata!['email_verified'],
+      ));
+      
       return right(unit);
     } on supabase.AuthException catch (e) {
       return left(AuthException.message(e.message));
@@ -63,7 +72,6 @@ class AuthFacade implements IAuthFacade {
 
       return right(unit);
     } on supabase.AuthException catch (e) {
-      _log.e(e);
       return left(AuthException.message(e.message));
     }
   }

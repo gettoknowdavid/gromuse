@@ -28,7 +28,9 @@ class AuthTitleContainer extends StatelessWidget {
         children: [
           AppBar(
             leading:
-                context.canPop() ? const Center(child: GBackButton()) : null,
+                Navigator.canPop(context)
+                ? const Center(child: GBackButton())
+                : null,
             leadingWidth: 40.w,
             backgroundColor: colors.primary,
           ),
