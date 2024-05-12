@@ -16,20 +16,23 @@ class AnimatedBranchContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-        children: children.mapIndexed(
-      (index, navigator) {
-        return AnimatedScale(
-          scale: index == currentIndex ? 1 : 1.5,
-          duration: const Duration(milliseconds: 400),
-          child: AnimatedOpacity(
-            opacity: index == currentIndex ? 1 : 0,
-            duration: const Duration(milliseconds: 400),
-            child: _branchNavigatorWrapper(index, navigator),
-          ),
-        );
-      },
-    ).toList());
+
+    return  Stack(
+        children: children
+            .mapIndexed(
+              (index, navigator) => AnimatedScale(
+                scale: index == currentIndex ? 1 : 1.5,
+                duration: const Duration(milliseconds: 400),
+                child: AnimatedOpacity(
+                  opacity: index == currentIndex ? 1 : 0,
+                  duration: const Duration(milliseconds: 400),
+                  child: _branchNavigatorWrapper(index, navigator),
+                ),
+              ),
+            )
+            .toList(),
+      
+    );
   }
 
   Widget _branchNavigatorWrapper(int index, Widget navigator) => IgnorePointer(

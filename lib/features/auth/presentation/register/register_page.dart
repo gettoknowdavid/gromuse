@@ -38,7 +38,7 @@ class RegisterPage extends ConsumerWidget {
               subtitle:
                   'You can create a new account on Gromuse with your name, email and password.',
             ),
-            CurvedContainer(
+            GClippedContainer(
               contentPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16).r,
               child: Column(
                 children: [

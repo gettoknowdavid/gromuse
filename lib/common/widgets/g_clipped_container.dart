@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gromuse/common/common.dart';
 
-class CurvedContainer extends StatelessWidget {
-  const CurvedContainer({
+class GClippedContainer extends StatelessWidget {
+  const GClippedContainer({
     super.key,
     required this.child,
     this.height,
@@ -28,7 +28,7 @@ class CurvedContainer extends StatelessWidget {
       width: width,
       margin: margin,
       child: CustomPaint(
-        painter: CurvedContainerPainter(backgroundColor ?? colors.background),
+        painter: GSecondaryPainter(backgroundColor ?? colors.background),
         child: Padding(
           padding: contentPadding ?? EdgeInsets.zero,
           child: child,

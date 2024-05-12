@@ -39,7 +39,7 @@ class LoginPage extends ConsumerWidget {
               subtitle:
                   'We\'ve missed you. You can login with your credentials.',
             ),
-            CurvedContainer(
+            GClippedContainer(
               contentPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16).r,
               child: Column(
                 children: [

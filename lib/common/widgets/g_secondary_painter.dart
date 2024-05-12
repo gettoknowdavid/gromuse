@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CurvedContainerPainter extends CustomPainter {
+class GSecondaryPainter extends CustomPainter {
   final Color color;
-  CurvedContainerPainter(this.color);
+  GSecondaryPainter(this.color);
 
   @override
   void paint(Canvas canvas, Size size) {

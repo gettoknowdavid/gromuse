@@ -26,7 +26,7 @@ class OnboardingPage extends StatelessWidget with SU {
               width: 1.sw,
               height: bottomContentHeight,
               child: CustomPaint(
-                painter: CurvedContainerPainter(colors.background),
+                painter: GSecondaryPainter(colors.background),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0).r,
                   child: Column(
